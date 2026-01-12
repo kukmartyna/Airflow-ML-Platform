@@ -1,0 +1,100 @@
+[
+  {
+    "catalog_name": "bronze",
+    "schema_name": "public",
+    "table_name": "klienci",
+    "pks": [
+      "id_klienta"
+    ],
+    "columns": [
+      {
+        "name": "id_klienta",
+        "type": "int"
+      },
+      {
+        "name": "imie",
+        "type": "string"
+      },
+      {
+        "name": "nazwisko",
+        "type": "string"
+      },
+      {
+        "name": "email",
+        "type": "string"
+      },
+      {
+        "name": "telefon",
+        "type": "int"
+      },
+      {
+        "name": "data_rejestracji",
+        "type": "date"
+      }
+    ]
+  },
+  {
+    "catalog_name": "bronze",
+    "schema_name": "public",
+    "table_name": "produkty",
+    "pks": [
+      "id_produktu"
+    ],
+    "columns": [
+      {
+        "name": "id_produktu",
+        "type": "int"
+      },
+      {
+        "name": "nazwa",
+        "type": "string"
+      },
+      {
+        "name": "kategoria",
+        "type": "string"
+      },
+      {
+        "name": "cena_netto",
+        "type": "decimal"
+      },
+      {
+        "name": "vat",
+        "type": "int"
+      },
+      {
+        "name": "ilosc_magazynowa",
+        "type": "int"
+      }
+    ]
+  },
+  {
+    "catalog_name": "bronze",
+    "schema_name": "public",
+    "table_name": "zamowienia",
+    "pks": [
+      "id_zamowienia"
+    ],
+    "columns": [
+      {
+        "name": "id_zamowienia",
+        "type": "int"
+      },
+      {
+        "name": "id_klienta",
+        "type": "int"
+      },
+      {
+        "name": "data_zamowienia",
+        "type": "date"
+      },
+      {
+        "name": "kwota_brutto",
+        "type": "decimal"
+      },
+      {
+        "name": "status",
+        "type": "string"
+      }
+    ]
+  }
+]
