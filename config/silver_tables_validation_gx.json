@@ -1,0 +1,23 @@
+[
+  {
+    "catalog_name": "silver",
+    "schema_name": "public",
+    "table_name": "klienci",
+    "suite_name": "dimklienci_suite",
+    "checkpoint_name": "klienci_checkpoint"
+  },
+  {
+    "catalog_name": "silver",
+    "schema_name": "public",
+    "table_name": "produkty",
+    "suite_name": "dimprodukty_suite",
+    "checkpoint_name": "produkty_checkpoint"
+  },
+  {
+    "catalog_name": "silver",
+    "schema_name": "public",
+    "table_name": "zamowienia",
+    "suite_name": "dimzamowienia_suite",
+    "checkpoint_name": "zamowienia_checkpoint"
+  }
+]

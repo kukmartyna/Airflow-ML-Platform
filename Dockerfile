@@ -1,7 +1,7 @@
 FROM apache/airflow:3.1.5
 
 # Install python liberies
-RUN pip install --user pyspark==3.5.2 apache-airflow-providers-apache-spark
+RUN pip install --user pyspark==3.5.2 apache-airflow-providers-apache-spark great_expectations==0.18.21
 
 
 # Install Java JDK
@@ -15,3 +15,5 @@ ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
 RUN export JAVA_HOME
 
 USER airflow
+
+#airflow-provider-great-expectations

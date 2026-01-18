@@ -15,16 +15,16 @@ PACKAGES = ",".join([
 ])
 
 with DAG(
-    dag_id="calculate_bronze_to_silver",
+    dag_id="clean_titanic_data",
     schedule=None,
     catchup=False,
 ) as dag:
     read_bronze_data_task = SparkSubmitOperator(
-        task_id="read_bronze_data",
-        application="./jobs/read_bronze_date.py",
+        task_id="clean_titanic_data",
+        application="./jobs/clean_titanic_data.py",
         conn_id='spark_default',
         packages=PACKAGES,
         name="my_spark_job",
-        # verbose=True,  # enable for debugging
+        verbose=True,  # enable for debugging
     )
 

@@ -72,7 +72,7 @@ def main():
                 ]
             )
 
-            df.write.format("delta").mode("overwrite").save(silver_path)
+            df.write.format("delta").mode("overwrite").option("mergeSchema", "true").save(silver_path)
 
 
 if __name__ == "__main__":

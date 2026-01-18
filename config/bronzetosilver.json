@@ -96,5 +96,64 @@
         "type": "string"
       }
     ]
+  },
+  {
+    "catalog_name": "bronze",
+    "schema_name": "public",
+    "table_name": "titanic",
+    "pks": [
+      "PassengerId"
+    ],
+    "columns": [
+      {
+        "name": "PassengerId",
+        "type": "int"
+      },
+      {
+        "name": "Survived",
+        "type": "int"
+      },
+      {
+        "name": "Pclass",
+        "type": "int"
+      },
+      {
+        "name": "Name",
+        "type": "string"
+      },
+      {
+        "name": "Sex",
+        "type": "string"
+      },
+      {
+        "name": "Age",
+        "type": "int"
+      },
+      {
+        "name": "SibSp",
+        "type": "int"
+      },
+      {
+        "name": "Parch",
+        "type": "int"
+      },
+      {
+        "name": "Ticket",
+        "type": "string"
+      },
+      {
+        "name": "Fare",
+        "type": "decimal"
+      },
+      {
+        "name": "Cabin",
+        "type": "string"
+      },
+      {
+        "name": "Embarked",
+        "type": "string"
+      }
+
+    ]
   }
 ]
