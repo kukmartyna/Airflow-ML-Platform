@@ -1,7 +1,7 @@
 FROM apache/airflow:3.1.5
 
 # Install python liberies
-RUN pip install --user pyspark==3.5.2 apache-airflow-providers-apache-spark great_expectations==0.18.21
+RUN pip install --user pyspark==3.5.2 apache-airflow-providers-apache-spark great_expectations==0.18.21 mlflow python-dotenv
 
 
 # Install Java JDK

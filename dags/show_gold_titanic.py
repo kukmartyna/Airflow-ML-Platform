@@ -4,20 +4,19 @@ from airflow.providers.apache.spark.operators.spark_submit import SparkSubmitOpe
 from dotenv import load_dotenv
 
 load_dotenv()
-
 PACKAGES = ",".join([
     "io.delta:delta-spark_2.12:3.3.1",
     "org.apache.hadoop:hadoop-aws:3.3.4",
 ])
 
 with DAG(
-        dag_id="calculate_bronze_to_silver",
+        dag_id="show_gold_titanic",
         schedule=None,
         catchup=False,
 ) as dag:
-    read_bronze_data_task = SparkSubmitOperator(
-        task_id="read_bronze_data",
-        application="./jobs/read_bronze_date.py",
+    show_silver_titanic = SparkSubmitOperator(
+        task_id="show_gold_titanic",
+        application="./jobs/show_gold_titanic.py",
         conn_id='spark_default',
         packages=PACKAGES,
         name="my_spark_job",

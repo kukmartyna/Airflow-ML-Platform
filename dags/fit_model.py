@@ -11,13 +11,13 @@ PACKAGES = ",".join([
 ])
 
 with DAG(
-        dag_id="calculate_bronze_to_silver",
-        schedule=None,
-        catchup=False,
+    dag_id="fit_model",
+    schedule=None,
+    catchup=False,
 ) as dag:
-    read_bronze_data_task = SparkSubmitOperator(
-        task_id="read_bronze_data",
-        application="./jobs/read_bronze_date.py",
+    fit_model = SparkSubmitOperator(
+        task_id="fit_model",
+        application="./jobs/fit_model.py",
         conn_id='spark_default',
         packages=PACKAGES,
         name="my_spark_job",
@@ -26,6 +26,7 @@ with DAG(
             "MINIO_ACCESS_KEY": os.getenv("MINIO_ACCESS_KEY", ""),
             "MINIO_SECRET_KEY": os.getenv("MINIO_SECRET_KEY", ""),
             "MINIO_BUCKET": os.getenv("MINIO_BUCKET", "")
-        }
-        # verbose=True,  # enable for debugging
+        },
+        #verbose=True,  # enable for debugging
     )
+
