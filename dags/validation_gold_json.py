@@ -1,0 +1,37 @@
+import os
+from airflow import DAG
+from airflow.providers.apache.spark.operators.spark_submit import SparkSubmitOperator
+from dotenv import load_dotenv
+
+load_dotenv()
+
+PACKAGES = ",".join([
+    "io.delta:delta-spark_2.12:3.3.1",
+    "org.apache.hadoop:hadoop-aws:3.3.4",
+])
+
+with (DAG(
+        dag_id="validation_gold",
+        schedule=None,
+        catchup=False)
+as dag):
+    validate = SparkSubmitOperator(
+        task_id="validate_gold_json",
+        application="./jobs/validate_gold_data_json.py",
+        conn_id="spark_default",
+        packages=PACKAGES,
+        name="validation_gold",
+        env_vars={
+            "MINIO_ENDPOINT": os.getenv("MINIO_ENDPOINT", ""),
+            "MINIO_ACCESS_KEY": os.getenv("MINIO_ACCESS_KEY", ""),
+            "MINIO_SECRET_KEY": os.getenv("MINIO_SECRET_KEY", ""),
+            "MINIO_BUCKET": os.getenv("MINIO_BUCKET", ""),
+            "AWS_ACCESS_KEY_ID": os.getenv("AWS_ACCESS_KEY_ID", ""),
+            "AWS_SECRET_ACCESS_KEY": os.getenv("AWS_SECRET_ACCESS_KEY", ""),
+            "AWS_ENDPOINT_URL": os.getenv("AWS_ENDPOINT_URL", ""),
+            "AWS_DEFAULT_REGION": os.getenv("AWS_DEFAULT_REGION", ""),
+            "AWS_EC2_METADATA_DISABLED": os.getenv("AWS_EC2_METADATA_DISABLED", ""),
+            "AWS_S3_ADDRESSING_STYLE": os.getenv("AWS_S3_ADDRESSING_STYLE", ""),
+        },
+        # verbose=True,
+    )

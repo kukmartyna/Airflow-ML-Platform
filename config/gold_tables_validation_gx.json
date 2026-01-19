@@ -1,0 +1,9 @@
+[
+  {
+    "catalog_name": "gold",
+    "schema_name": "public",
+    "table_name": "titanic",
+    "suite_name": "dimtitanic_gold_suite",
+    "checkpoint_name": "titanic_gold_checkpoint"
+  }
+]

@@ -19,5 +19,12 @@
     "table_name": "zamowienia",
     "suite_name": "dimzamowienia_suite",
     "checkpoint_name": "zamowienia_checkpoint"
+  },
+  {
+    "catalog_name": "silver",
+    "schema_name": "public",
+    "table_name": "titanic",
+    "suite_name": "dimtitanic_silver_suite",
+    "checkpoint_name": "titanic_checkpoint"
   }
 ]

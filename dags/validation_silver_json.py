@@ -17,7 +17,7 @@ with (DAG(
 as dag):
     validate = SparkSubmitOperator(
         task_id="validate_silver_json",
-        application="./jobs/validate_data_json.py",
+        application="./jobs/validate_silver_data_json.py",
         conn_id="spark_default",
         packages=PACKAGES,
         name="validation_silver",
